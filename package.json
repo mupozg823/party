@@ -1,0 +1,17 @@
+{
+  "name": "party-stars",
+  "version": "1.0.0",
+  "description": "Mario Party style web board game built with vanilla HTML5 Canvas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mupozg823/party.git"
+  },
+  "keywords": ["game", "board-game", "party-game", "canvas", "html5"],
+  "author": "",
+  "license": "ISC"
+}
