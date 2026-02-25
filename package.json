@@ -1,0 +1,15 @@
+{
+  "name": "party-stars",
+  "version": "1.0.0",
+  "description": "Mario Party-style board game with minigames",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "lint": "node scripts/lint.js",
+    "test": "node scripts/test.mjs"
+  },
+  "type": "module",
+  "keywords": ["game", "party", "board-game", "minigames"],
+  "license": "MIT"
+}
