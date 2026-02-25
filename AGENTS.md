@@ -1,16 +1,51 @@
 # AGENTS.md
 
-## Cursor Cloud specific instructions
+## Project: Party Stars
 
-This repository ("party") is currently a blank/skeleton project initialized with only a `README.md`. There are no source files, dependencies, build systems, services, or tests at this time.
+마리오 파티 스타일의 웹 기반 보드게임입니다.
 
-### Current state
+### Tech Stack
 
-- **No language/framework**: No `package.json`, `pyproject.toml`, `go.mod`, `Cargo.toml`, or equivalent.
-- **No services**: No backend, frontend, database, or other services are defined.
-- **No build/test/lint**: No build scripts, test frameworks, or linters are configured.
-- **No Docker**: No `Dockerfile` or `docker-compose.yml`.
+- **Language**: JavaScript (ES Modules)
+- **Rendering**: HTML5 Canvas API
+- **Audio**: Web Audio API (programmatic sounds)
+- **Server**: Node.js built-in `http` module (development)
+- **External Dependencies**: None (zero-dependency)
 
-### When code is added
+### Running the Project
 
-Once the first real code and dependency manifest are committed, the update script and this file should be revised to reflect actual setup requirements (dependency installation, environment variables, service startup caveats, etc.).
+```bash
+# Start development server
+node server.js
+# Then open http://localhost:8080
+```
+
+Or with Python:
+```bash
+python3 -m http.server 8080 -d public
+```
+
+### Project Structure
+
+- `public/` - Static HTML entry point
+- `src/engine/` - Custom game engine (Canvas, Input, SceneManager, Tween, Audio)
+- `src/scenes/` - Game scenes (Menu, CharacterSelect, Board, Results)
+- `src/scenes/minigames/` - Mini-game implementations
+- `src/managers/` - Game state management
+- `src/data/` - Game data (boards, characters, items)
+- `src/ui/` - Reusable UI components (Button, Dialog, HUD)
+- `src/utils/` - Helper functions
+- `docs/` - Game design documentation
+
+### Build/Test/Lint
+
+- **No build step required** - ES Modules run directly in the browser
+- **No test framework** - Manual testing via browser
+- **No linter configured** - Standard JavaScript
+
+### Development Notes
+
+- All rendering uses programmatic graphics (Canvas shapes/text), no image assets required
+- Audio uses Web Audio API oscillators for SFX, no audio files needed
+- Scene transitions use a fade-to-black system
+- Board maps are defined as node graphs in `src/data/boards.js`

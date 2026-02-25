@@ -304,10 +304,8 @@ export class MemoryMatchScene {
       winner: rank === 0
     }));
 
-    this.game.scenes.switchTo('board');
-    setTimeout(() => {
-      this.boardSceneRef.onMinigameComplete(results);
-    }, 100);
+    this.game.scenes.switchImmediate('board');
+    this.boardSceneRef.onMinigameComplete(results);
   }
 
   exit() {}

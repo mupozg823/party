@@ -392,16 +392,28 @@ export class BoardScene {
       }
     });
 
-    if (this.gm.endRound()) {
-      this.state = BOARD_STATE.WAITING;
-      this.gm.currentPlayerIndex = 0;
-      this.gm.roundPlayersCompleted = 0;
-      this.showMessage(`라운드 ${this.gm.currentRound} 시작!`);
-    } else {
-      this.game.scenes.switchTo('results', {
-        gameManager: this.gm
-      });
-    }
+    const winner = results.find(r => r.winner);
+    const winnerName = winner ? this.gm.players[winner.playerIndex].name : '???';
+    const resultText = results.map(r =>
+      `${this.gm.players[r.playerIndex].name}: +${r.coins} 코인`
+    ).join('\n');
+
+    this.dialog.show(`🎮 미니게임 종료!`, `우승: ${winnerName}\n${resultText}`, [
+      {
+        text: '다음 라운드', color: '#4ECDC4', onClick: () => {
+          if (this.gm.endRound()) {
+            this.state = BOARD_STATE.WAITING;
+            this.gm.currentPlayerIndex = 0;
+            this.gm.roundPlayersCompleted = 0;
+            this.showMessage(`라운드 ${this.gm.currentRound} 시작!`);
+          } else {
+            this.game.scenes.switchTo('results', {
+              gameManager: this.gm
+            });
+          }
+        }
+      }
+    ]);
   }
 
   render(canvas) {
